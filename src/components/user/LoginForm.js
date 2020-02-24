@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { userLogin } from "../../store/user/actions";
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
   state = {
@@ -48,13 +49,14 @@ class LoginForm extends Component {
           <br></br>
           <button type="submit">Submit</button>
         </form>
+        <Link to="/">HOME PAGE</Link>
       </div>
     );
   }
 }
 
 function mapStateToProps(reduxState) {
-  console.log("THE State in login form", reduxState);
+  // console.log("THE State in login form", reduxState);
   return {};
 }
 
