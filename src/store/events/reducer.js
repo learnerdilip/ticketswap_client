@@ -1,4 +1,4 @@
-const initialState = { currentevent: {}, events: [] };
+const initialState = { currentevent: {}, eventlist: [] };
 
 export default function eventsReducer(state = initialState, action) {
   switch (action.type) {
@@ -14,6 +14,9 @@ export default function eventsReducer(state = initialState, action) {
         // startDate: action.payload.startDate,
         // endDate: action.payload.endDate
       };
+    }
+    case "EVENTS_FETCHED": {
+      return { ...state, eventlist: action.payload };
     }
     default: {
       return { ...state };

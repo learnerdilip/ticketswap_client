@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { sendEvent } from "../../store/events/actions";
+import "react-bulma-components/dist/react-bulma-components.min.css";
+import { Button } from "react-bulma-components";
 
 class EventsForm extends Component {
   state = {
@@ -10,6 +12,8 @@ class EventsForm extends Component {
     start_date: "",
     end_date: ""
   };
+
+  componentDidMount() {}
 
   handleChange = event => {
     this.setState({
@@ -23,13 +27,13 @@ class EventsForm extends Component {
   };
 
   render() {
-    // console.log("THE STATE IN EVENTS FORM", this.state);
     return (
-      <div>
+      <div className="eventhomeform">
         <form onSubmit={e => this.handleSubmit(e)}>
-          <label>
+          <label class="label">
             EVENT TITLE
             <input
+              class="input"
               onChange={event => this.handleChange(event)}
               value={this.state.title}
               type="text"
@@ -37,9 +41,11 @@ class EventsForm extends Component {
               name="title"
             />
           </label>
-          <label>
+          <br />
+          <label class="label">
             EVENT DESCRIPTION
             <textarea
+              class="textarea"
               onChange={event => this.handleChange(event)}
               value={this.state.description}
               placeholder="Event description"
@@ -47,9 +53,11 @@ class EventsForm extends Component {
               name="description"
             />
           </label>
-          <label>
+          <br />
+          <label class="label">
             IMAGE URL
             <input
+              class="input"
               onChange={event => this.handleChange(event)}
               value={this.state.imageurl}
               placeholder="Please provide image URL"
@@ -57,9 +65,11 @@ class EventsForm extends Component {
               name="imageurl"
             />
           </label>
-          <label>
+          <br />
+          <label class="label">
             START DATE
             <input
+              class="date"
               onChange={event => this.handleChange(event)}
               value={this.state.start_date}
               type="date"
@@ -67,9 +77,10 @@ class EventsForm extends Component {
               name="start_date"
             />
           </label>
-          <label>
+          <label class="label">
             END DATE
             <input
+              class="date"
               onChange={event => this.handleChange(event)}
               value={this.state.end_date}
               type="date"
@@ -77,7 +88,9 @@ class EventsForm extends Component {
               name="end_date"
             />
           </label>
-          <button type="submit">SUBMIT</button>
+          <Button color="primary" type="submit">
+            SUBMIT
+          </Button>
         </form>
       </div>
     );
@@ -85,7 +98,7 @@ class EventsForm extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  console.log("REDUX STATE FROM EVENST FORM", reduxState);
+  // console.log("REDUX STATE FROM EVENST FORM", reduxState);
   return {
     eventstate: reduxState
   };

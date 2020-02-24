@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import Events from "./Events";
 import EventsForm from "./EventsForm";
+import { connect } from "react-redux";
+import { getEventsList } from "../../store/events/actions";
 
-export default class EventListContainer extends Component {
+class EventListContainer extends Component {
+  componentDidMount() {
+    this.props.getEventsList();
+  }
+
   render() {
     return (
       <div>
-        <Events />
+        <Events className="eventcontainerhome" />}
         <br />
         <EventsForm />
       </div>
@@ -14,7 +20,11 @@ export default class EventListContainer extends Component {
   }
 }
 
-// * a name
-// * a description
-// * a picture or logo
-// * a start and end date (could be the same)
+const mapStateToProps = reduxState => {
+  console.log("THE STATE IN EVENTS FORM", reduxState.events);
+  return {
+    eventstate: reduxState.events
+  };
+};
+
+export default connect(mapStateToProps, { getEventsList })(EventListContainer);
