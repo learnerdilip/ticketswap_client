@@ -16,6 +16,12 @@ export default function ticketReducer(state = initalState, action) {
         ticketList: action.payload
       };
     }
+    case "TICKET_CLICK_UPDATE": {
+      return {
+        ...state,
+        ticket: action.payload
+      };
+    }
     default: {
       return { ...state };
     }

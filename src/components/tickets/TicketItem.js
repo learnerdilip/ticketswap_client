@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class TicketItem extends Component {
   render() {
@@ -12,6 +13,7 @@ export default class TicketItem extends Component {
               <th>Title</th>
               <th>Price</th>
               <th>Description</th>
+              <th>Check Ticket</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +23,12 @@ export default class TicketItem extends Component {
                   <td>{ticket.title}</td>
                   <td>{ticket.price}</td>
                   <td>{ticket.description}</td>
+                  <Link
+                    onClick={() => this.props.handleClick(ticket)}
+                    to={`/event/ticket/${ticket.id}`}
+                  >
+                    {ticket.id}
+                  </Link>
                 </tr>
               );
             })}

@@ -26,3 +26,10 @@ export const sendTicket = (fullTicket, eventId) => async dispatch => {
   });
   dispatch(ticketcreated(response.data));
 };
+
+export const setCurrentTicket = ticket => async dispatch => {
+  dispatch({
+    type: "TICKET_CLICK_UPDATE",
+    payload: ticket
+  });
+};
