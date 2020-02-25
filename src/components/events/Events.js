@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { clickEventUpdate } from "../../store/events/actions";
+import { Link } from "react-router-dom";
 
 class Events extends Component {
-  handleClick = eventName => {
-    console.log("the event was clicked!", eventName);
+  handleClick = currentevent => {
+    console.log("the event was clicked!", currentevent);
+    this.props.clickEventUpdate(currentevent);
   };
 
   render() {
@@ -11,7 +14,12 @@ class Events extends Component {
       return (
         <div className="homeEvent" key={index}>
           <img height="300px" width="300px" src={event.imageUrl} />
-          <p onClick={() => this.handleClick(event.name)}>{event.name}</p>
+          <Link
+            to={`/event/${event.name}`}
+            onClick={() => this.handleClick(event)}
+          >
+            {event.name}
+          </Link>
         </div>
       );
     });
@@ -29,4 +37,4 @@ const mapStateToProps = reduxState => {
   };
 };
 
-export default connect(mapStateToProps)(Events);
+export default connect(mapStateToProps, { clickEventUpdate })(Events);

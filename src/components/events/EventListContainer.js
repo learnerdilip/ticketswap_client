@@ -10,7 +10,7 @@ class EventListContainer extends Component {
   }
 
   render() {
-    console.log("--------------------", this.props);
+    // console.log("--------------------", this.props);
     return (
       <div>
         <Events className="eventcontainerhome" />}
@@ -22,7 +22,7 @@ class EventListContainer extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  console.log("THE STATE IN EVENTS FORM", reduxState.events);
+  // console.log("THE STATE IN EVENTS FORM", reduxState.events);
   return {
     eventstate: reduxState.events
   };

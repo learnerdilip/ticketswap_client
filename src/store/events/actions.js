@@ -25,3 +25,10 @@ export const getEventsList = () => async dispatch => {
   // console.log("THE EVENTS LIST FETCH FROM SERVER", response.data);
   dispatch(eventsFetched(response.data));
 };
+
+export const clickEventUpdate = currentEvent => dispatch => {
+  dispatch({
+    type: "EVENT_CLICK_UPDATE",
+    payload: currentEvent
+  });
+};
