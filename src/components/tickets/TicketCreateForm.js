@@ -68,7 +68,7 @@ class TicketCreateForm extends Component {
               value={this.state.imageurl}
               type="text"
               name="price"
-              placeholder="Please provide image URL"
+              placeholder="Price for your ticket"
             />
           </Form.Group>
           <br />

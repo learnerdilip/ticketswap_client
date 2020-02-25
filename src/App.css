@@ -3,10 +3,26 @@ body {
   font-family: Acme;
 }
 
+h2 {
+  text-align: center;
+}
 .eventCards {
   display: flex;
+  margin: 1rem auto;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  box-shadow: 1rem 1rem 5rem 0px grey;
+  border: solid gray 0.2px;
+  width: 85%;
+}
+.eventCard {
+  margin: 1rem;
+}
+
+.card-img-top {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  height: 12rem;
 }
 .homeEvent {
   width: 25%;
@@ -25,4 +41,9 @@ body {
 form {
   border: black solid 1px;
   padding: 1rem;
+}
+
+.tickettable {
+  width: 70%;
+  margin: auto;
 }

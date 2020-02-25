@@ -1,26 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { clickEventUpdate } from "../../store/events/actions";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 class Events extends Component {
   handleClick = currentevent => {
-    console.log("the event was clicked!", currentevent);
+    // console.log("the event was clicked!", currentevent);
     this.props.clickEventUpdate(currentevent);
   };
 
   render() {
     const mappedevents = this.props.eventstate.eventlist.map((event, index) => {
       return (
-        <div className="homeEvent" key={index}>
-          <img height="300px" width="300px" src={event.imageUrl} />
-          <Link
-            to={`/event/${event.name}`}
-            onClick={() => this.handleClick(event)}
-          >
-            {event.name}
-          </Link>
-        </div>
+        <Card className="eventCard" style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={event.imageUrl} />
+          <Card.Body>
+            <Card.Title>{event.title}</Card.Title>
+            <Card.Text>{event.description}</Card.Text>
+            <Link to={`/${event.id}`}>
+              <Button onClick={() => this.handleClick(event.id)} variant="dark">
+                TICKETS!
+              </Button>
+            </Link>
+          </Card.Body>
+        </Card>
       );
     });
     return (

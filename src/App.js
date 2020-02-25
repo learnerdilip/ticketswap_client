@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 import LoginForm from "./components/user/LoginForm";
 import HomePage from "./components/HomePage";
-import EventListContainer from "./components/events/EventListContainer";
 import { Route, Switch } from "react-router-dom";
 import SignupForm from "./components/user/SignupForm";
 import "bootstrap/dist/css/bootstrap.min.css";

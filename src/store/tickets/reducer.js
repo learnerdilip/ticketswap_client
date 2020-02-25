@@ -1,4 +1,4 @@
-const initalState = { ticket: {}, ticketList: [] };
+const initalState = { ticket: null, ticketList: null };
 
 export default function ticketReducer(state = initalState, action) {
   switch (action.type) {
@@ -6,15 +6,14 @@ export default function ticketReducer(state = initalState, action) {
       //payload should be a ticket object
       return {
         ...state,
-        ticket: action.payload,
-        ticketList: [state.ticketList, action.payload]
+        ticket: action.payload
       };
     }
-    case "TICKTS_FETCHED": {
+    case "TICKETS_FETCHED": {
       //the payload should be an array of tickets
       return {
         ...state,
-        ticketList: [...state.ticketList, action.payload]
+        ticketList: action.payload
       };
     }
     default: {
