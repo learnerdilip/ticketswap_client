@@ -3,6 +3,11 @@ body {
   font-family: Acme;
 }
 
+html {
+  width: 70%;
+  margin: auto;
+}
+
 h2 {
   text-align: center;
 }
@@ -46,4 +51,8 @@ form {
 .tickettable {
   width: 70%;
   margin: auto;
+}
+
+.the.Ticket {
+  text-align: center;
 }

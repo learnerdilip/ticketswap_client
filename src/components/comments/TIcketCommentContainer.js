@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CommentForm from "./CommentForm";
-// import { Image } from "react-bootstrap";
+import { getComments } from "../../store/comments/action";
+import { Card } from "react-bootstrap";
 
 class TIcketCommentContainer extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getComments(this.props.ticketState.ticket.id);
+  }
 
   render() {
-    // console.log("the ticket from redux state", this.props.ticketState.ticket);
+    const allcomments = this.props.commentstate.commentList.map(comment => {
+      return (
+        <Card>
+          <Card.Body>
+            <Card.Title>{comment.text}</Card.Title>
+            <Card.Text>USER ID: {comment.id}</Card.Text>
+          </Card.Body>
+        </Card>
+      );
+    });
     const {
       id,
       price,
@@ -19,9 +31,12 @@ class TIcketCommentContainer extends Component {
     return (
       <div>
         <h2>The Ticket Details</h2>
-        <h2>{title}</h2>
-        <img src={imageurl}></img>
-        <p>{description}</p>
+        <div className="the Ticket">
+          <h2>{title}</h2>
+          <img src="https://www.dansschool-wesseling.nl/uploads/Image/tickets.png" />
+          <p>{description}</p>
+        </div>
+        {allcomments}
         <CommentForm />
       </div>
     );
@@ -30,8 +45,11 @@ class TIcketCommentContainer extends Component {
 
 const mapStateToProps = reduxState => {
   return {
-    ticketState: reduxState.tickets
+    ticketState: reduxState.tickets,
+    commentstate: reduxState.comments
   };
 };
 
-export default connect(mapStateToProps, {})(TIcketCommentContainer);
+export default connect(mapStateToProps, { getComments })(
+  TIcketCommentContainer
+);

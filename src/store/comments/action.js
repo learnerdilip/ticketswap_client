@@ -9,8 +9,21 @@ const commentSent = data => {
   };
 };
 export const sendComment = comment => async dispatch => {
-  console.log("-----------before sending", comment);
-
   const response = axios.post(`${baseUrl}/sendcomment`, comment);
   dispatch(commentSent(response.data));
+};
+
+const ticketCommentFetched = data => {
+  return {
+    type: "COMMENTS_FETCHED",
+    payload: data
+  };
+};
+export const getComments = ticketid => async dispatch => {
+  const response = await axios.post(`${baseUrl}/getticketcomments`, {
+    ticketid
+  });
+  console.log("the response for comment list", response);
+
+  dispatch(ticketCommentFetched(response.data));
 };
