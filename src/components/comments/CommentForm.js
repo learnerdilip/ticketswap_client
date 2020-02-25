@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
 import { connect } from "react-redux";
+import { sendComment } from "../../store/comments/action";
 
 class CommentForm extends Component {
   state = {
-    author: "",
     comment: ""
   };
 
@@ -17,34 +17,27 @@ class CommentForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // this.props.sendEvent(this.state);
+    this.props.sendComment({
+      userid: this.props.userstate.userid,
+      text: this.state.comment,
+      ticketid: this.props.ticketstate.ticket.id
+    });
   };
 
   render() {
     return (
       <div>
         <Form onSubmit={e => this.handleSubmit(e)}>
-          <Form.Group controlId="text">
-            <Form.Label>EVENT TITLE</Form.Label>
-            <Form.Control
-              onChange={event => this.handleChange(event)}
-              value={this.state.title}
-              type="text"
-              name="author"
-              placeholder="Enter author (your) name"
-            />
-          </Form.Group>
-          <br />
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>EVENT DESCRIPTION</Form.Label>
+            <Form.Label>Comment</Form.Label>
             <Form.Control
               as="textarea"
               rows="3"
               onChange={event => this.handleChange(event)}
               value={this.state.description}
               type="textarea"
-              name="Comment"
-              placeholder="Enter Description"
+              name="comment"
+              placeholder="Enter the Comment"
             />
           </Form.Group>
           <Button type="submit">SUBMIT</Button>
@@ -56,8 +49,9 @@ class CommentForm extends Component {
 
 const mapStateToProps = reduxState => {
   return {
-    ticketstate: reduxState.tickets
+    ticketstate: reduxState.tickets,
+    userstate: reduxState.user
   };
 };
 
-export default connect(mapStateToProps)(CommentForm);
+export default connect(mapStateToProps, { sendComment })(CommentForm);
