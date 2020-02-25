@@ -18,8 +18,8 @@ class Events extends Component {
           <Card.Body>
             <Card.Title>{event.title}</Card.Title>
             <Card.Text>{event.description}</Card.Text>
-            <Link to={`/${event.id}`}>
-              <Button onClick={() => this.handleClick(event.id)} variant="dark">
+            <Link to={`/event/${event.id}`}>
+              <Button onClick={() => this.handleClick(event)} variant="dark">
                 TICKETS!
               </Button>
             </Link>
