@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { sendEvent } from "../../store/events/actions";
-import "react-bulma-components/dist/react-bulma-components.min.css";
-import { Button } from "react-bulma-components";
+import Button from "react-bootstrap/Button";
+import { Form } from "react-bootstrap";
 
 class EventsForm extends Component {
   state = {
@@ -28,48 +28,46 @@ class EventsForm extends Component {
 
   render() {
     return (
-      <div className="eventhomeform">
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <label class="label">
-            EVENT TITLE
-            <input
-              class="input"
+      <div className="eventform">
+        <Form onSubmit={e => this.handleSubmit(e)}>
+          <Form.Group controlId="text">
+            <Form.Label>EVENT TITLE</Form.Label>
+            <Form.Control
               onChange={event => this.handleChange(event)}
               value={this.state.title}
               type="text"
-              placeholder="Event title"
               name="title"
+              placeholder="Enter Title"
             />
-          </label>
+          </Form.Group>
           <br />
-          <label class="label">
-            EVENT DESCRIPTION
-            <textarea
-              class="textarea"
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>EVENT DESCRIPTION</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"
               onChange={event => this.handleChange(event)}
               value={this.state.description}
-              placeholder="Event description"
               type="textarea"
               name="description"
+              placeholder="Enter Description"
             />
-          </label>
+          </Form.Group>
           <br />
-          <label class="label">
-            IMAGE URL
-            <input
-              class="input"
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>IMAGE URL</Form.Label>
+            <Form.Control
               onChange={event => this.handleChange(event)}
               value={this.state.imageurl}
-              placeholder="Please provide image URL"
               type="text"
               name="imageurl"
+              placeholder="Please provide image URL"
             />
-          </label>
+          </Form.Group>
           <br />
-          <label class="label">
+          <label>
             START DATE
             <input
-              class="date"
               onChange={event => this.handleChange(event)}
               value={this.state.start_date}
               type="date"
@@ -77,10 +75,9 @@ class EventsForm extends Component {
               name="start_date"
             />
           </label>
-          <label class="label">
+          <label>
             END DATE
             <input
-              class="date"
               onChange={event => this.handleChange(event)}
               value={this.state.end_date}
               type="date"
@@ -88,10 +85,9 @@ class EventsForm extends Component {
               name="end_date"
             />
           </label>
-          <Button color="primary" type="submit">
-            SUBMIT
-          </Button>
-        </form>
+          <br />
+          <Button type="submit">SUBMIT</Button>
+        </Form>
       </div>
     );
   }

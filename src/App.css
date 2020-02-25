@@ -15,9 +15,7 @@ body {
   /* border: solid black 1px; */
 }
 
-.eventhomeform {
-  /* border: solid black 1px; */
-  margin: auto;
+.eventform {
   width: 70%;
-  border-radius: 5px;
+  margin: auto;
 }

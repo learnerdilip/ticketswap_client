@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "react-bulma-components/dist/react-bulma-components.min.css";
 
 class Events extends Component {
+  handleClick = eventName => {
+    console.log("the event was clicked!", eventName);
+  };
+
   render() {
     const mappedevents = this.props.eventstate.eventlist.map((event, index) => {
       return (
         <div className="homeEvent" key={index}>
-          <p class="title is-4">{event.name}</p>
-          <img class="card-image" src={event.imageUrl} />
+          <img height="300px" width="300px" src={event.imageUrl} />
+          <p onClick={() => this.handleClick(event.name)}>{event.name}</p>
         </div>
       );
     });

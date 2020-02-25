@@ -6,6 +6,7 @@ import LoginForm from "./components/user/LoginForm";
 import HomePage from "./components/HomePage";
 import { Route, Switch } from "react-router-dom";
 import SignupForm from "./components/user/SignupForm";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

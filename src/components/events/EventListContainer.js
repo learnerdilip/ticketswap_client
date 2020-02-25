@@ -10,6 +10,7 @@ class EventListContainer extends Component {
   }
 
   render() {
+    console.log("--------------------", this.props);
     return (
       <div>
         <Events className="eventcontainerhome" />}
