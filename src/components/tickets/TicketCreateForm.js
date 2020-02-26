@@ -22,7 +22,7 @@ class TicketCreateForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.sendTicket(
-      this.state,
+      this.props.ticketstate.ticket,
       this.props.eventstate.events.currentevent.id,
       this.props.userstate.token
     );
@@ -85,7 +85,8 @@ function mapStateToProps(reduxState) {
   // console.log("REDUX STATE FROM EVENST FORM", reduxState);
   return {
     eventstate: reduxState,
-    userstate: reduxState.user
+    userstate: reduxState.user,
+    ticketstate: reduxState.tickets
   };
 }
 
