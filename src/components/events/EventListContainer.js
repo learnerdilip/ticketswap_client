@@ -16,7 +16,7 @@ class EventListContainer extends Component {
         <br />
         <hr />
         <h2>CREATE AN EVENT</h2>
-        <EventsForm />
+        {this.props.userstate.token && <EventsForm />}
       </div>
     );
   }
@@ -25,7 +25,8 @@ class EventListContainer extends Component {
 const mapStateToProps = reduxState => {
   // console.log("THE STATE IN EVENTS FORM", reduxState.events);
   return {
-    eventstate: reduxState.events
+    eventstate: reduxState.events,
+    userstate: reduxState.user
   };
 };
 

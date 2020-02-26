@@ -52,7 +52,7 @@ class TIcketCommentContainer extends Component {
           <p>{description}</p>
         </div>
         {allcomments}
-        <CommentForm />
+        {this.props.userstate.token && <CommentForm />}
       </div>
     );
   }

@@ -28,7 +28,7 @@ class LoginForm extends Component {
 
   render() {
     // console.log("THE LOGIN FORM STATE:", this.state);
-    if (this.props.userstate.isLoggedIn)
+    if (this.props.userstate.token)
       return (
         <div>
           <h3>Already Logged In! Go to</h3>

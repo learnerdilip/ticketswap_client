@@ -3,7 +3,7 @@ import TicketCreateForm from "./TicketCreateForm";
 import TicketItem from "./TicketItem";
 import { getTicketList, setCurrentTicket } from "../../store/tickets/actions";
 import { connect } from "react-redux";
-import {Navbar} from "react-bootstrap"
+import { Navbar } from "react-bootstrap";
 
 class ticketsContainer extends Component {
   componentDidMount() {
@@ -28,15 +28,14 @@ class ticketsContainer extends Component {
             />
             Event Ticket Swap
           </Navbar.Brand>
-          <div className="navloginsignup">
-          </div>
+          <div className="navloginsignup"></div>
         </Navbar>
         <h2>EVENT TICKETS</h2>
         <TicketItem
           handleClick={this.setTicketState}
           data={this.props.ticketstate.ticketList}
         />
-        <TicketCreateForm />
+        {this.props.userstate.token && <TicketCreateForm />}
       </div>
     );
   }
@@ -45,7 +44,8 @@ class ticketsContainer extends Component {
 const mapStateToProps = reduxState => {
   return {
     ticketstate: reduxState.tickets,
-    eventstate: reduxState.events
+    eventstate: reduxState.events,
+    userstate: reduxState.user
   };
 };
 
