@@ -17,11 +17,14 @@ class CommentForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.sendComment({
-      userid: this.props.userstate.userid,
-      text: this.state.comment,
-      ticketid: this.props.ticketstate.ticket.id
-    });
+    this.props.sendComment(
+      {
+        userid: this.props.userstate.userid,
+        text: this.state.comment,
+        ticketid: this.props.ticketstate.ticket.id
+      },
+      this.userstate.token
+    );
     this.setState({
       comment: ""
     });

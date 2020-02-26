@@ -19,11 +19,18 @@ const ticketcreated = data => {
     payload: data
   };
 };
-export const sendTicket = (fullTicket, eventId) => async dispatch => {
-  const response = await axios.post(`${baseUrl}/ticketpost`, {
-    fullTicket,
-    eventId
-  });
+export const sendTicket = (fullTicket, eventId, jwt) => async dispatch => {
+  const config = { Authorization: `Bearer ${jwt}` };
+  const response = await axios.post(
+    `${baseUrl}/ticketpost`,
+    {
+      fullTicket,
+      eventId
+    },
+    {
+      headers: config
+    }
+  );
   dispatch(ticketcreated(response.data));
 };
 

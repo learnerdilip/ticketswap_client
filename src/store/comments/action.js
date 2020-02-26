@@ -8,8 +8,11 @@ const commentSent = data => {
     payload: data
   };
 };
-export const sendComment = comment => async dispatch => {
-  const response = axios.post(`${baseUrl}/sendcomment`, comment);
+export const sendComment = (comment, jwt) => async dispatch => {
+  const config = { Authorization: `Bearer ${jwt}` };
+  const response = axios.post(`${baseUrl}/sendcomment`, comment, {
+    headers: config
+  });
   dispatch(commentSent(response.data));
 };
 

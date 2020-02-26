@@ -23,7 +23,8 @@ class TicketCreateForm extends Component {
     event.preventDefault();
     this.props.sendTicket(
       this.state,
-      this.props.eventstate.events.currentevent.id
+      this.props.eventstate.events.currentevent.id,
+      this.props.userstate.token
     );
     this.setState({
       title: "",
@@ -83,7 +84,8 @@ class TicketCreateForm extends Component {
 function mapStateToProps(reduxState) {
   // console.log("REDUX STATE FROM EVENST FORM", reduxState);
   return {
-    eventstate: reduxState
+    eventstate: reduxState,
+    userstate: reduxState.user
   };
 }
 
