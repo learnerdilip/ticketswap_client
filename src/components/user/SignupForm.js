@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { userSignup } from "../../store/user/actions";
+import { userSignup, resetsignup } from "../../store/user/actions";
 import { Link } from "react-router-dom";
 
 import { Form, Button } from "react-bootstrap";
@@ -12,9 +12,15 @@ class SignupForm extends Component {
     password: ""
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    this.props.userSignup(this.state.email, this.state.password);
+    await this.props.userSignup(this.state.email, this.state.password);
+
+    this.setState({
+      email: "",
+      password: ""
+    });
+    this.props.resetsignup();
   };
 
   handleChange = event => {
@@ -24,7 +30,13 @@ class SignupForm extends Component {
   };
 
   render() {
-    // console.log("THE LOGIN FORM STATE:", this.state);
+    if (this.props.userstate.userCreated)
+      return (
+        <div>
+          <h3>Thank you for signing Up! Go to Login page now</h3>
+          <Link to="/login">LOGIN PAGE</Link>
+        </div>
+      );
     return (
       <div className="loginsiunupForm">
         <h3>Please Signup here</h3>
@@ -63,7 +75,11 @@ class SignupForm extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  return {};
+  return {
+    userstate: reduxState.user
+  };
 }
 
-export default connect(mapStateToProps, { userSignup })(SignupForm);
+export default connect(mapStateToProps, { userSignup, resetsignup })(
+  SignupForm
+);

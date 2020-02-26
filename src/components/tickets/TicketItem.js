@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default class TicketItem extends Component {
   render() {
     // console.log("props for individual tickets", this.props.data);
+    if (!this.props.data) return <div>Loading...</div>;
     return (
       <div className="tickettable">
         <Table striped bordered hover>

@@ -14,14 +14,17 @@ export default function userReducer(state = initialState, action) {
         isLoggedIn: true,
         userid: action.payload.id,
         email: action.payload.email,
-        token: action.payload.token
+        token: action.payload.token,
+        userCreated: false
       };
     }
 
     case "USER_CREATED": {
-      return { ...state, userCreated: true };
+      return { ...state, isLoggedIn: false, userCreated: true };
     }
-
+    case "RESET_SIGNUP": {
+      return { ...state, userCreated: false };
+    }
     default: {
       return { ...state, isLoggedIn: true };
     }

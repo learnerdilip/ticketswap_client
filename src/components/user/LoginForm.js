@@ -14,6 +14,10 @@ class LoginForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.userLogin(this.state.email, this.state.password);
+    this.setState({
+      email: "",
+      password: ""
+    });
   };
 
   handleChange = event => {
@@ -24,6 +28,13 @@ class LoginForm extends Component {
 
   render() {
     // console.log("THE LOGIN FORM STATE:", this.state);
+    if (this.props.userstate.isLoggedIn)
+      return (
+        <div>
+          <h3>Already Logged In! Go to</h3>
+          <Link to="/">HOME PAGE</Link>
+        </div>
+      );
     return (
       <div className="loginsiunupForm">
         <h3>Please Login here</h3>
@@ -63,7 +74,9 @@ class LoginForm extends Component {
 
 function mapStateToProps(reduxState) {
   // console.log("THE State in login form", reduxState);
-  return {};
+  return {
+    userstate: reduxState.user
+  };
 }
 
 export default connect(mapStateToProps, { userLogin })(LoginForm);

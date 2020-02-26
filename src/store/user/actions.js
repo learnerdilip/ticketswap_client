@@ -28,8 +28,14 @@ export const userSignup = (email, password) => async dispatch => {
     email,
     password
   });
-  console.log("THE SIGNUP RESPONSE", response.status);
+  // console.log("THE SIGNUP RESPONSE", response.status);
   if (response.status === 200) {
     dispatch(userSignedUp(response.status));
   }
+};
+
+export const resetsignup = () => dispatch => {
+  return dispatch({
+    type: "RESET_SIGNUP"
+  });
 };

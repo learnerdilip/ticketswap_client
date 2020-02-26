@@ -10,6 +10,7 @@ class TIcketCommentContainer extends Component {
   }
 
   render() {
+    if (!this.props.commentstate.commentList) return <div>Loading...</div>;
     const allcomments = this.props.commentstate.commentList.map(comment => {
       return (
         <Card>
