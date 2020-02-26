@@ -3,6 +3,7 @@ import EventListContainer from "./events/EventListContainer";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Navbar } from "react-bootstrap";
+import { clearuserData } from "../store/user/actions";
 
 class HomePage extends Component {
   render() {
@@ -23,6 +24,9 @@ class HomePage extends Component {
             <Link to="/login">LOGIN PAGE</Link>
             <br />
             <Link to="/signup">SIGNUP PAGE</Link>
+            <Link to="/" onClick={() => this.props.clearuserData()}>
+              LOGOUT
+            </Link>
           </div>
         </Navbar>
         <EventListContainer />
@@ -35,4 +39,4 @@ const mapStateToProps = reduxState => {
   return {};
 };
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps, { clearuserData })(HomePage);

@@ -3,6 +3,7 @@ import TicketCreateForm from "./TicketCreateForm";
 import TicketItem from "./TicketItem";
 import { getTicketList, setCurrentTicket } from "../../store/tickets/actions";
 import { connect } from "react-redux";
+import {Navbar} from "react-bootstrap"
 
 class ticketsContainer extends Component {
   componentDidMount() {
@@ -16,6 +17,20 @@ class ticketsContainer extends Component {
   render() {
     return (
       <div>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src=""
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            Event Ticket Swap
+          </Navbar.Brand>
+          <div className="navloginsignup">
+          </div>
+        </Navbar>
         <h2>EVENT TICKETS</h2>
         <TicketItem
           handleClick={this.setTicketState}

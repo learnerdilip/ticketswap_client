@@ -39,3 +39,9 @@ export const resetsignup = () => dispatch => {
     type: "RESET_SIGNUP"
   });
 };
+
+export const clearuserData = () => dispatch => {
+  return dispatch({
+    type: "LOGOUT_USER"
+  });
+};

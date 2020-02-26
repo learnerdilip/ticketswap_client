@@ -1,6 +1,6 @@
-const initalState = { ticket: null, ticketList: null };
+const initialState = { ticket: null, ticketList: null };
 
-export default function ticketReducer(state = initalState, action) {
+export default function ticketReducer(state = initialState, action) {
   switch (action.type) {
     case "TICKET_CREATED": {
       //payload should be a ticket object
@@ -21,6 +21,9 @@ export default function ticketReducer(state = initalState, action) {
         ...state,
         ticket: action.payload
       };
+    }
+    case "LOGOUT_USER": {
+      return initialState;
     }
     default: {
       return { ...state };

@@ -25,6 +25,9 @@ export default function userReducer(state = initialState, action) {
     case "RESET_SIGNUP": {
       return { ...state, userCreated: false };
     }
+    case "LOGOUT_USER": {
+      return initialState;
+    }
     default: {
       return { ...state, isLoggedIn: true };
     }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import CommentForm from "./CommentForm";
 import { getComments } from "../../store/comments/action";
 import { Card } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 class TIcketCommentContainer extends Component {
   componentDidMount() {
@@ -31,6 +32,19 @@ class TIcketCommentContainer extends Component {
 
     return (
       <div>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src=""
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            Event Ticket Swap
+          </Navbar.Brand>
+          <div className="navloginsignup"></div>
+        </Navbar>
         <h2>The Ticket Details</h2>
         <div className="the Ticket">
           <h2>{title}</h2>
