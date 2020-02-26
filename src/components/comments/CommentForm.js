@@ -23,7 +23,7 @@ class CommentForm extends Component {
         text: this.state.comment,
         ticketid: this.props.ticketstate.ticket.id
       },
-      this.userstate.token
+      this.props.userstate.token
     );
     this.setState({
       comment: ""

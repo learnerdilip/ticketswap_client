@@ -7,10 +7,13 @@ import { Navbar } from "react-bootstrap";
 
 class TIcketCommentContainer extends Component {
   componentDidMount() {
+    console.log(";;;;;;;;;;;;;;;rcomp did mount");
     this.props.getComments(this.props.ticketState.ticket.id);
   }
 
   render() {
+    console.log(";;;;;;;;;;;;;;;render");
+
     if (!this.props.commentstate.commentList) return <div>Loading...</div>;
     const allcomments = this.props.commentstate.commentList.map(comment => {
       return (

@@ -27,6 +27,5 @@ export const getComments = ticketid => async dispatch => {
     ticketid
   });
   console.log("the response for comment list", response);
-
   dispatch(ticketCommentFetched(response.data));
 };

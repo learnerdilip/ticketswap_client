@@ -6,7 +6,11 @@ export default function commentReducer(state = initialState, action) {
       return { ...state, currentcomment: action.payload };
     }
     case "COMMENTS_FETCHED": {
-      return { ...state, commentList: action.payload };
+      if (action.payload.length) {
+        return { ...state, commentList: action.payload };
+      } else {
+        return { ...state };
+      }
     }
     case "LOGOUT_USER": {
       return initialState;
