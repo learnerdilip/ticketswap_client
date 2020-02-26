@@ -3,6 +3,13 @@ body {
   font-family: Acme;
 }
 
+.loginsiunupForm {
+  margin-top: 17rem;
+}
+form {
+  border-radius: 10px;
+}
+
 html {
   width: 70%;
   margin: auto;

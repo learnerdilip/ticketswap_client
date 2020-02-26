@@ -15,7 +15,7 @@ class TIcketCommentContainer extends Component {
         <Card>
           <Card.Body>
             <Card.Title>{comment.text}</Card.Title>
-            <Card.Text>USER ID: {comment.id}</Card.Text>
+            <Card.Text>USER ID: {comment.userId}</Card.Text>
           </Card.Body>
         </Card>
       );
@@ -46,7 +46,8 @@ class TIcketCommentContainer extends Component {
 const mapStateToProps = reduxState => {
   return {
     ticketState: reduxState.tickets,
-    commentstate: reduxState.comments
+    commentstate: reduxState.comments,
+    userstate: reduxState.user
   };
 };
 

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { userLogin } from "../../store/user/actions";
 import { Link } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
 class LoginForm extends Component {
   state = {
@@ -24,31 +25,36 @@ class LoginForm extends Component {
   render() {
     // console.log("THE LOGIN FORM STATE:", this.state);
     return (
-      <div>
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <label>
-            Email(username)
-            <input
-              input="text"
-              placeholder="Enter your email"
-              name="email"
-              value={this.state.email}
-              onChange={e => this.handleChange(e)}
-            />
-          </label>
-          <label>
-            Password
-            <input
-              input="text"
-              placeholder="Password"
-              name="password"
-              value={this.state.password}
-              onChange={e => this.handleChange(e)}
-            />
-          </label>
+      <div className="loginsiunupForm">
+        <h3>Please Login here</h3>
+        <Form onSubmit={e => this.handleSubmit(e)}>
+          <Form.Label>Email(username)</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter your email"
+            name="email"
+            value={this.state.email}
+            onChange={e => this.handleChange(e)}
+          />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={this.state.password}
+            onChange={e => this.handleChange(e)}
+          />
           <br></br>
-          <button type="submit">Submit</button>
-        </form>
+          <Button variant="dark" type="submit">
+            Submit
+          </Button>
+        </Form>
+        <h6>Not a registered user? Go to</h6>
+        <Link to="/signup">SIGN UP PAGE</Link>
+        <br />
         <Link to="/">HOME PAGE</Link>
       </div>
     );

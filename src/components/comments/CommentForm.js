@@ -29,7 +29,7 @@ class CommentForm extends Component {
       <div>
         <Form onSubmit={e => this.handleSubmit(e)}>
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Comment</Form.Label>
+            <Form.Label>Your Comment</Form.Label>
             <Form.Control
               as="textarea"
               rows="3"
