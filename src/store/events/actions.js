@@ -23,8 +23,10 @@ const eventsFetched = eventsList => {
     payload: eventsList
   };
 };
-export const getEventsList = () => async dispatch => {
-  const response = await axios.get(`${baseUrl}/getevents`);
+export const getEventsList = (limit, offset) => async dispatch => {
+  const response = await axios.get(
+    `${baseUrl}/getevents?limit=${limit}&offset=${offset}`
+  );
   // console.log("THE EVENTS LIST FETCH FROM SERVER", response.data);
   dispatch(eventsFetched(response.data));
 };

@@ -3,17 +3,32 @@ import Events from "./Events";
 import EventsForm from "./EventsForm";
 import { connect } from "react-redux";
 import { getEventsList } from "../../store/events/actions";
+import { Button } from "react-bootstrap";
 
 class EventListContainer extends Component {
+  state = {
+    offset: 0
+  };
   componentDidMount() {
-    this.props.getEventsList();
+    this.props.getEventsList(9, this.state.offset);
   }
+  changePage = async () => {
+    console.log("offsetting");
+
+    const changestate = await this.setState({
+      offset: this.state.offset + 9
+    });
+    this.props.getEventsList(9, this.state.offset);
+  };
 
   render() {
+    console.log("the local state in list cotainer", this.state);
+
     return (
       <div>
         <Events className="eventcontainerhome" />
         <br />
+        <Button onClick={this.changePage}>NEXT PAGE ></Button>
         <hr />
         <h2>CREATE AN EVENT</h2>
         {this.props.userstate.token && <EventsForm />}
