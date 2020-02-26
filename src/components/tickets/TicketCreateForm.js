@@ -21,16 +21,15 @@ class TicketCreateForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(
-      "---event being sent",
-      this.state,
-      this.props.eventstate.events.currentevent.id
-    );
-
     this.props.sendTicket(
       this.state,
       this.props.eventstate.events.currentevent.id
     );
+    this.setState({
+      title: "",
+      description: "",
+      price: 0
+    });
   };
 
   render() {

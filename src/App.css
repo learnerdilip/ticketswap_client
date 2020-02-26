@@ -1,3 +1,7 @@
+html {
+  width: 80%;
+  margin: auto;
+}
 body {
   text-align: center;
   font-family: Acme;
@@ -19,11 +23,6 @@ a {
 }
 form {
   border-radius: 10px;
-}
-
-html {
-  width: 70%;
-  margin: auto;
 }
 
 h2 {

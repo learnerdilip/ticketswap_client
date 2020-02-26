@@ -23,7 +23,14 @@ class EventsForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.sendEvent(this.state);
+    this.props.sendEvent(this.state, this.props.userstate.token);
+    this.setState({
+      title: "",
+      description: "",
+      imageurl: "",
+      start_date: "",
+      end_date: ""
+    });
   };
 
   render() {
@@ -96,7 +103,8 @@ class EventsForm extends Component {
 function mapStateToProps(reduxState) {
   // console.log("REDUX STATE FROM EVENST FORM", reduxState);
   return {
-    eventstate: reduxState
+    eventstate: reduxState,
+    userstate: reduxState.user
   };
 }
 

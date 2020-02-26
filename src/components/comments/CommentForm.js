@@ -22,6 +22,9 @@ class CommentForm extends Component {
       text: this.state.comment,
       ticketid: this.props.ticketstate.ticket.id
     });
+    this.setState({
+      comment: ""
+    });
   };
 
   render() {

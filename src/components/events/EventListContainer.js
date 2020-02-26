@@ -12,7 +12,7 @@ class EventListContainer extends Component {
   render() {
     return (
       <div>
-        <Events className="eventcontainerhome" />}
+        <Events className="eventcontainerhome" />
         <br />
         <hr />
         <h2>CREATE AN EVENT</h2>

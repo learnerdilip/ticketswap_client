@@ -21,9 +21,9 @@ class HomePage extends Component {
             Event Ticket Swap
           </Navbar.Brand>
           <div className="navloginsignup">
-            <Link to="/login">LOGIN PAGE</Link>
+            <Link to="/login">LOGIN </Link>
             <br />
-            <Link to="/signup">SIGNUP PAGE</Link>
+            <Link to="/signup">SIGNUP </Link>
             <Link to="/" onClick={() => this.props.clearuserData()}>
               LOGOUT
             </Link>

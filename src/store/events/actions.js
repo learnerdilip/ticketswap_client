@@ -8,8 +8,11 @@ const eventCreated = data => {
     payload: data
   };
 };
-export const sendEvent = fullevent => async dispatch => {
-  const response = await axios.post(`${baseUrl}/postevent`, fullevent);
+export const sendEvent = (fullevent, jwt) => async dispatch => {
+  const config = { Authorization: `Bearer ${jwt}` };
+  const response = await axios.post(`${baseUrl}/postevent`, fullevent, {
+    headers: config
+  });
   // console.log("THE SERVER RESPONSE FROM POST EVENTS-------- ", response.data);
   dispatch(eventCreated(response.data));
 };
