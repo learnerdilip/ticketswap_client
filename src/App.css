@@ -3,6 +3,17 @@ body {
   font-family: Acme;
 }
 
+a {
+  color: white;
+  margin: auto 1rem;
+}
+
+.navloginsignup {
+  display: flex;
+  flex-flow: row-reverse;
+  margin-left: auto;
+}
+
 .loginsiunupForm {
   margin-top: 17rem;
 }

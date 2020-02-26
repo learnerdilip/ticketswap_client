@@ -19,11 +19,13 @@ class HomePage extends Component {
             />
             Event Ticket Swap
           </Navbar.Brand>
+          <div className="navloginsignup">
+            <Link to="/login">LOGIN PAGE</Link>
+            <br />
+            <Link to="/signup">SIGNUP PAGE</Link>
+          </div>
         </Navbar>
         <EventListContainer />
-        <Link to="/login">TO LOGIN PAGE</Link>
-        <br />
-        <Link to="/signup">TO SIGN UP PAGE</Link>
       </div>
     );
   }
