@@ -35,7 +35,7 @@ export const sendTicket = (fullTicket, eventId, jwt) => async dispatch => {
 };
 
 export const setCurrentTicket = ticket => async dispatch => {
-  dispatch({
+  return dispatch({
     type: "TICKET_CLICK_UPDATE",
     payload: ticket
   });

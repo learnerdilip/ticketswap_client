@@ -11,7 +11,40 @@ class TIcketCommentContainer extends Component {
   }
 
   render() {
-    if (!this.props.commentstate.commentList) return <div>Loading...</div>;
+    const {
+      id,
+      price,
+      title,
+      imageurl,
+      description
+    } = this.props.ticketState.ticket;
+
+    if (!this.props.commentstate.commentList)
+      return (
+        <div>
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">
+              <img
+                alt=""
+                src=""
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />
+              Event Ticket Swap
+            </Navbar.Brand>
+            <div className="navloginsignup"></div>
+          </Navbar>
+          <h2>The Ticket Details</h2>
+          <div className="the Ticket">
+            <h2>{title}</h2>
+            <img src="https://www.dansschool-wesseling.nl/uploads/Image/tickets.png" />
+            <p>{description}</p>
+          </div>
+
+          {this.props.userstate.token && <CommentForm />}
+        </div>
+      );
     const allcomments = this.props.commentstate.commentList.map(comment => {
       return (
         <Card>
@@ -22,13 +55,6 @@ class TIcketCommentContainer extends Component {
         </Card>
       );
     });
-    const {
-      id,
-      price,
-      title,
-      imageurl,
-      description
-    } = this.props.ticketState.ticket;
 
     return (
       <div>
