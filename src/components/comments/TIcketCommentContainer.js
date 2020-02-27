@@ -14,6 +14,7 @@ class TIcketCommentContainer extends Component {
     const {
       id,
       price,
+      risk,
       title,
       imageurl,
       description
@@ -38,6 +39,7 @@ class TIcketCommentContainer extends Component {
           <h2>The Ticket Details</h2>
           <div className="the Ticket">
             <h2>{title}</h2>
+            <h2>The calculated RISK on this ticket is: {risk}%</h2>
             <img src="https://www.dansschool-wesseling.nl/uploads/Image/tickets.png" />
             <p>{description}</p>
           </div>
@@ -74,6 +76,7 @@ class TIcketCommentContainer extends Component {
         <h2>The Ticket Details</h2>
         <div className="the Ticket">
           <h2>{title}</h2>
+          <h2>The calculated RISK on this ticket is: {risk}%</h2>
           <img src="https://www.dansschool-wesseling.nl/uploads/Image/tickets.png" />
           <p>{description}</p>
         </div>
