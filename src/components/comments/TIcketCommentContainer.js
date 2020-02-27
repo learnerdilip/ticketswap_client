@@ -42,6 +42,7 @@ class TIcketCommentContainer extends Component {
             <h2>The calculated RISK on this ticket is: {risk}%</h2>
             <img src="https://www.dansschool-wesseling.nl/uploads/Image/tickets.png" />
             <p>{description}</p>
+            <h4>PRICE: ${price}</h4>
           </div>
 
           {this.props.userstate.token && <CommentForm />}
@@ -79,6 +80,7 @@ class TIcketCommentContainer extends Component {
           <h2>The calculated RISK on this ticket is: {risk}%</h2>
           <img src="https://www.dansschool-wesseling.nl/uploads/Image/tickets.png" />
           <p>{description}</p>
+          <h4>PRICE: ${price}</h4>
         </div>
         {allcomments}
         {this.props.userstate.token && <CommentForm />}
