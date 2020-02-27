@@ -34,8 +34,10 @@ export default class TicketItem extends Component {
                   <td
                     className="riskyparam"
                     style={
-                      (ticket.risk > 50 && { color: "red" }) ||
-                      (ticket.risk < 50 && { color: "green" })
+                      (ticket.risk > 75 && { color: "red" }) ||
+                      (ticket.risk < 30 && { color: "green" }) ||
+                      (ticket.risk < 75 &&
+                        ticket.risk > 30 && { color: "orange" })
                     }
                   >
                     {ticket.risk}
