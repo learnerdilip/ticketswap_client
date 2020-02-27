@@ -19,11 +19,20 @@ class TicketCreateForm extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    this.props.sendTicket(
-      this.props.ticketstate.ticket,
+    console.log(
+      "--------tiket creation data-----",
+      this.state,
       this.props.eventstate.events.currentevent.id,
+      this.props.userstate.token
+    );
+
+    const sendTheCreatedTicket = await this.props.sendTicket(
+      // the state(local)
+      this.state,
+      this.props.eventstate.events.currentevent.id,
+      this.props.userstate.userid,
       this.props.userstate.token
     );
     this.setState({
@@ -31,6 +40,8 @@ class TicketCreateForm extends Component {
       description: "",
       price: 0
     });
+    console.log("----the ticket STATE----", this.props.ticketstate.ticket);
+    // this.props.sendTicketForRiskCalc(this.props.ticketstate.ticket);
   };
 
   render() {
@@ -74,7 +85,7 @@ class TicketCreateForm extends Component {
           <br />
 
           <br />
-          <Button type="submit">SUBMIT</Button>
+          <Button type="submit">Create Ticket</Button>
         </Form>
       </div>
     );
