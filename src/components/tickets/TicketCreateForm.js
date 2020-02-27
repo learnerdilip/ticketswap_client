@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
-import { sendTicket } from "../../store/tickets/actions";
+import { sendTicket, sendTicketForRiskCalc } from "../../store/tickets/actions";
 
 class TicketCreateForm extends Component {
   state = {
@@ -40,11 +40,11 @@ class TicketCreateForm extends Component {
       description: "",
       price: 0
     });
-    console.log("----the ticket STATE----", this.props.ticketstate.ticket);
-    // this.props.sendTicketForRiskCalc(this.props.ticketstate.ticket);
+    this.props.sendTicketForRiskCalc(this.props.ticketstate.ticket);
   };
 
   render() {
+    console.log("----the ticket STATE----", this.props.ticketstate.ticket);
     return (
       <div className="eventform">
         <Form onSubmit={e => this.handleSubmit(e)}>
@@ -101,4 +101,6 @@ function mapStateToProps(reduxState) {
   };
 }
 
-export default connect(mapStateToProps, { sendTicket })(TicketCreateForm);
+export default connect(mapStateToProps, { sendTicket, sendTicketForRiskCalc })(
+  TicketCreateForm
+);

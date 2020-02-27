@@ -25,6 +25,9 @@ export default function ticketReducer(state = initialState, action) {
     case "LOGOUT_USER": {
       return initialState;
     }
+    case "TICKET_RISK_UPDATE": {
+      return { ...state, ticket: action.payload };
+    }
     default: {
       return { ...state };
     }

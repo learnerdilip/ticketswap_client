@@ -46,3 +46,16 @@ export const setCurrentTicket = ticket => async dispatch => {
     payload: ticket
   });
 };
+
+const updateTicketRisk = riskTicket => {
+  return {
+    type: "TICKET_RISK_UPDATE",
+    payload: riskTicket
+  };
+};
+export const sendTicketForRiskCalc = ticket => async dispatch => {
+  // console.log("the ticket in thunk", ticket);
+  const response = await axios.post(`${baseUrl}/updaterisk`, ticket);
+  // console.log("------response after risk calculation", response.data);
+  dispatch(updateTicketRisk(response.data));
+};
