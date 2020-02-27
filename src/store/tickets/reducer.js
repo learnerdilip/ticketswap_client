@@ -6,7 +6,8 @@ export default function ticketReducer(state = initialState, action) {
       //payload should be a ticket object
       return {
         ...state,
-        ticket: action.payload
+        ticket: action.payload,
+        ticketList: [...state.ticketList, action.payload]
       };
     }
     case "TICKETS_FETCHED": {

@@ -10,9 +10,10 @@ const commentSent = data => {
 };
 export const sendComment = (comment, jwt) => async dispatch => {
   const config = { Authorization: `Bearer ${jwt}` };
-  const response = axios.post(`${baseUrl}/sendcomment`, comment, {
+  const response = await axios.post(`${baseUrl}/sendcomment`, comment, {
     headers: config
   });
+  console.log("====--------===========", response.data);
   dispatch(commentSent(response.data));
 };
 
