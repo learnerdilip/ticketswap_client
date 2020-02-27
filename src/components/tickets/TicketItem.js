@@ -15,6 +15,7 @@ export default class TicketItem extends Component {
               <th>Price</th>
               <th>Description</th>
               <th>Check Ticket</th>
+              <th>Ticket Risk</th>
             </tr>
           </thead>
           <tbody>
@@ -30,6 +31,15 @@ export default class TicketItem extends Component {
                   >
                     {ticket.id}
                   </Link>
+                  <td
+                    className="riskyparam"
+                    style={
+                      (ticket.risk > 50 && { color: "red" }) ||
+                      (ticket.risk < 50 && { color: "green" })
+                    }
+                  >
+                    {ticket.risk}
+                  </td>
                 </tr>
               );
             })}

@@ -21,13 +21,6 @@ class TicketCreateForm extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    console.log(
-      "--------tiket creation data-----",
-      this.state,
-      this.props.eventstate.events.currentevent.id,
-      this.props.userstate.token
-    );
-
     const sendTheCreatedTicket = await this.props.sendTicket(
       // the state(local)
       this.state,
