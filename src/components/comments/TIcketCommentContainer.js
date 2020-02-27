@@ -48,6 +48,7 @@ class TIcketCommentContainer extends Component {
           {this.props.userstate.token && <CommentForm />}
         </div>
       );
+      
     const allcomments = this.props.commentstate.commentList.map(comment => {
       return (
         <Card>

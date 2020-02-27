@@ -1,4 +1,4 @@
-const initialState = { currentcomment: null, commentList: null };
+const initialState = { currentcomment: null, commentList: [] };
 
 export default function commentReducer(state = initialState, action) {
   switch (action.type) {
@@ -13,7 +13,7 @@ export default function commentReducer(state = initialState, action) {
       if (action.payload.length) {
         return { ...state, commentList: action.payload };
       } else {
-        return { ...state };
+        return { ...state, commentList: [] };
       }
     }
     case "LOGOUT_USER": {

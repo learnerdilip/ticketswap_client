@@ -10,7 +10,7 @@ class TicketItem extends Component {
   state = {
     title: "",
     description: "",
-    price: 0
+    price: null
   };
 
   handleEdit = async ticket => {
@@ -60,10 +60,10 @@ class TicketItem extends Component {
                   <td
                     className="riskyparam"
                     style={
-                      (ticket.risk > 75 && { color: "red" }) ||
-                      (ticket.risk < 30 && { color: "green" }) ||
+                      (ticket.risk >= 75 && { backgoundColor: "red" }) ||
+                      (ticket.risk <= 30 && { backgoundColor: "green" }) ||
                       (ticket.risk < 75 &&
-                        ticket.risk > 30 && { color: "orange" })
+                        ticket.risk > 30 && { backgoundColor: "orange" })
                     }
                   >
                     {ticket.risk}

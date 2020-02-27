@@ -27,6 +27,6 @@ export const getComments = ticketid => async dispatch => {
   const response = await axios.post(`${baseUrl}/getticketcomments`, {
     ticketid
   });
-  console.log("the response for comment list", response);
+  // console.log("the response for comment list", response.data);
   dispatch(ticketCommentFetched(response.data));
 };

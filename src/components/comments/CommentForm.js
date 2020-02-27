@@ -15,9 +15,9 @@ class CommentForm extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    this.props.sendComment(
+    const temp = await this.props.sendComment(
       {
         userid: this.props.userstate.userid,
         text: this.state.comment,
