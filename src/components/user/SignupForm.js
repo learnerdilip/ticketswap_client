@@ -20,7 +20,7 @@ class SignupForm extends Component {
       email: "",
       password: ""
     });
-    this.props.resetsignup();
+    // this.props.resetsignup();
   };
 
   handleChange = event => {

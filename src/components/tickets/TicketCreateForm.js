@@ -37,7 +37,7 @@ class TicketCreateForm extends Component {
   };
 
   render() {
-    console.log("----the ticket STATE----", this.props.ticketstate.ticket);
+    // console.log("----the ticket STATE----", this.props.ticketstate.ticket);
     return (
       <div className="eventform">
         <Form onSubmit={e => this.handleSubmit(e)}>

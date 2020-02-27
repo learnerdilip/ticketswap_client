@@ -24,7 +24,7 @@ class TicketItem extends Component {
   };
 
   formEditHandle = async event => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   render() {
@@ -88,10 +88,7 @@ class TicketItem extends Component {
           </tbody>
         </Table>
         {this.props.ticketState.editMode && (
-          <EditForm
-            ticketData={this.state}
-            handleFormData={this.formEditHandle}
-          />
+          <EditForm ticketData={this.state} />
         )}
       </div>
     );
