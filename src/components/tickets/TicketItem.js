@@ -28,7 +28,7 @@ class TicketItem extends Component {
   };
 
   render() {
-    // console.log("props for individual tickets", this.props.data);
+    console.log("props for individual tickets", this.props.data);
     if (!this.props.data) return <div>Loading...</div>;
 
     return (

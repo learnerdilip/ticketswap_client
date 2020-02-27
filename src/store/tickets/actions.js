@@ -65,3 +65,12 @@ export const changeEditState = () => async dispatch => {
     type: "TOGGLE_TICKET_EDIT"
   });
 };
+
+export const sendEditTicket = (ticket, ticketState) => async dispatch => {
+  const response = await axios.post(`${baseUrl}/editticket`, {
+    ticket,
+    ticketState
+  });
+  console.log("the editied ticket", response);
+  // dispatch(ticketcreated(response.data));
+};
