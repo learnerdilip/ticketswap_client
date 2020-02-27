@@ -1,4 +1,4 @@
-const initialState = { ticket: null, ticketList: null };
+const initialState = { ticket: null, ticketList: null, editMode: false };
 
 export default function ticketReducer(state = initialState, action) {
   switch (action.type) {
@@ -27,6 +27,9 @@ export default function ticketReducer(state = initialState, action) {
     }
     case "TICKET_RISK_UPDATE": {
       return { ...state, ticket: action.payload };
+    }
+    case "TOGGLE_TICKET_EDIT": {
+      return { ...state, editMode: true };
     }
     default: {
       return { ...state };

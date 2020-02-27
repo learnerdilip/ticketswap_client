@@ -1,8 +1,27 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { changeEditState } from "../../store/tickets/actions";
 
-export default class TicketItem extends Component {
+class TicketItem extends Component {
+  state = {
+    title: "",
+    description: "",
+    price: 0
+  };
+
+  handleEdit = async ticket => {
+    const localStateToTicket = await this.setState({
+      title: ticket.title,
+      description: ticket.description,
+      price: ticket.price
+    });
+    // console.log("the local state", this.state);
+    this.props.changeEditState();
+  };
+
   render() {
     // console.log("props for individual tickets", this.props.data);
     if (!this.props.data) return <div>Loading...</div>;
@@ -16,6 +35,7 @@ export default class TicketItem extends Component {
               <th>Description</th>
               <th>Check Ticket</th>
               <th>Ticket Risk</th>
+              <th>EDIT</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +62,17 @@ export default class TicketItem extends Component {
                   >
                     {ticket.risk}
                   </td>
+                  <Button
+                    onClick={() => {
+                      if (ticket.userId === this.props.userState.userid) {
+                        this.handleEdit(ticket);
+                      } else {
+                        console.log("ticket created by another user!!");
+                      }
+                    }}
+                  >
+                    EDIT
+                  </Button>
                 </tr>
               );
             })}
@@ -51,3 +82,12 @@ export default class TicketItem extends Component {
     );
   }
 }
+
+const mapStateToProps = reduxState => {
+  return {
+    userState: reduxState.user,
+    ticketState: reduxState.tickets
+  };
+};
+
+export default connect(mapStateToProps, { changeEditState })(TicketItem);

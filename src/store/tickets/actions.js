@@ -59,3 +59,9 @@ export const sendTicketForRiskCalc = ticket => async dispatch => {
   // console.log("------response after risk calculation", response.data);
   dispatch(updateTicketRisk(response.data));
 };
+
+export const changeEditState = () => async dispatch => {
+  return dispatch({
+    type: "TOGGLE_TICKET_EDIT"
+  });
+};
