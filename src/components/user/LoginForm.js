@@ -31,7 +31,7 @@ class LoginForm extends Component {
     if (this.props.userstate.token)
       return (
         <div>
-          <h3>Already Logged In! Go to</h3>
+          <h3>Logged In! Go to</h3>
           <Link to="/">HOME PAGE</Link>
         </div>
       );
