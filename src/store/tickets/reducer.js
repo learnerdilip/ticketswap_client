@@ -29,7 +29,7 @@ export default function ticketReducer(state = initialState, action) {
       return { ...state, ticket: action.payload };
     }
     case "TOGGLE_TICKET_EDIT": {
-      return { ...state, editMode: true };
+      return { ...state, editMode: !state.editMode };
     }
     default: {
       return { ...state };

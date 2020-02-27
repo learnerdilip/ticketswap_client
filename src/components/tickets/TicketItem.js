@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { changeEditState } from "../../store/tickets/actions";
+import EditForm from "./EditForm";
 
 class TicketItem extends Component {
   state = {
@@ -22,9 +23,14 @@ class TicketItem extends Component {
     this.props.changeEditState();
   };
 
+  formEditHandle = async event => {
+    console.log(event.target.value);
+  };
+
   render() {
     // console.log("props for individual tickets", this.props.data);
     if (!this.props.data) return <div>Loading...</div>;
+
     return (
       <div className="tickettable">
         <Table striped bordered hover>
@@ -62,22 +68,31 @@ class TicketItem extends Component {
                   >
                     {ticket.risk}
                   </td>
-                  <Button
-                    onClick={() => {
-                      if (ticket.userId === this.props.userState.userid) {
-                        this.handleEdit(ticket);
-                      } else {
-                        console.log("ticket created by another user!!");
-                      }
-                    }}
-                  >
-                    EDIT
-                  </Button>
+                  {/* if the user is correct show the edit button */}
+                  {ticket.userId === this.props.userState.userid && (
+                    <Button
+                      onClick={() => {
+                        if (ticket.userId === this.props.userState.userid) {
+                          this.handleEdit(ticket);
+                        } else {
+                          console.log("ticket created by another user!!");
+                        }
+                      }}
+                    >
+                      EDIT
+                    </Button>
+                  )}
                 </tr>
               );
             })}
           </tbody>
         </Table>
+        {this.props.ticketState.editMode && (
+          <EditForm
+            ticketData={this.state}
+            handleFormData={this.formEditHandle}
+          />
+        )}
       </div>
     );
   }
