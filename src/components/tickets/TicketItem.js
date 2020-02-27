@@ -66,7 +66,7 @@ class TicketItem extends Component {
                         ticket.risk > 30 && { backgoundColor: "orange" })
                     }
                   >
-                    {ticket.risk}
+                    {ticket.risk}%
                   </td>
                   {/* if the user is correct show the edit button */}
                   {ticket.userId === this.props.userState.userid && (
