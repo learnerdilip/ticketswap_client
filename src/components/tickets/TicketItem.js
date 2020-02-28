@@ -28,6 +28,7 @@ class TicketItem extends Component {
   };
 
   render() {
+    let riskyparam = "red-class";
     console.log("props for individual tickets", this.props.data);
     if (!this.props.data)
       return (
@@ -65,8 +66,10 @@ class TicketItem extends Component {
                   <td
                     className="riskyparam"
                     style={
-                      (ticket.risk >= 75 && { backgoundColor: "red" }) ||
-                      (ticket.risk <= 30 && { backgoundColor: "green" })
+                      (ticket.risk >= 75 && { color: "red" }) ||
+                      (ticket.risk <= 30 && { color: "green" }) ||
+                      (ticket.risk < 75 &&
+                        ticket.risk > 30 && { color: "orange" })
                     }
                   >
                     {ticket.risk}%
