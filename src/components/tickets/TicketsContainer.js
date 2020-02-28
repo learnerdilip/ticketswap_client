@@ -15,6 +15,11 @@ class ticketsContainer extends Component {
   };
 
   render() {
+    console.log(
+      " this.props.eventstate.currentevent.title ",
+      this.props.eventstate.currentevent.title
+    );
+
     return (
       <div>
         <Navbar bg="dark" variant="dark">
@@ -30,7 +35,7 @@ class ticketsContainer extends Component {
           </Navbar.Brand>
           <div className="navloginsignup"></div>
         </Navbar>
-        <h2>EVENT TICKETS</h2>
+        <h2>Tickets for {this.props.eventstate.currentevent.name} </h2>
         <TicketItem
           handleClick={this.setTicketState}
           data={this.props.ticketstate.ticketList}
