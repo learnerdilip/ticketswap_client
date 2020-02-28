@@ -21,7 +21,12 @@ class EditForm extends Component {
   };
 
   render() {
-    // console.log("-----the local state-------", this.state);
+    console.log(
+      "-----the local state---&& global ticket State----",
+      this.state,
+      "GS:",
+      this.props.ticketState
+    );
     return (
       <div>
         <form onSubmit={e => this.handleSubmit(e)}>
