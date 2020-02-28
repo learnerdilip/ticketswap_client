@@ -66,9 +66,7 @@ class TicketItem extends Component {
                     className="riskyparam"
                     style={
                       (ticket.risk >= 75 && { backgoundColor: "red" }) ||
-                      (ticket.risk <= 30 && { backgoundColor: "green" }) ||
-                      (ticket.risk < 75 &&
-                        ticket.risk > 30 && { backgoundColor: "orange" })
+                      (ticket.risk <= 30 && { backgoundColor: "green" })
                     }
                   >
                     {ticket.risk}%
