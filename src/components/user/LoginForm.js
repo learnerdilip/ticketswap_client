@@ -30,7 +30,7 @@ class LoginForm extends Component {
     // console.log("THE LOGIN FORM STATE:", this.state);
     if (this.props.userstate.token)
       return (
-        <div>
+        <div className="formundertext">
           <h3>Logged In! Go to</h3>
           <Link to="/">HOME PAGE</Link>
         </div>
@@ -63,10 +63,11 @@ class LoginForm extends Component {
             Submit
           </Button>
         </Form>
-        <h6>Not a registered user? Go to</h6>
-        <Link to="/signup">SIGN UP PAGE</Link>
-        <br />
-        <Link to="/">HOME PAGE</Link>
+        <div className="formundertext">
+          <h6>Not a registered user? Go to</h6>
+          <Link to="/signup">SIGN UP PAGE</Link>
+          <Link to="/">HOME PAGE</Link>
+        </div>
       </div>
     );
   }

@@ -29,6 +29,8 @@ class HomePage extends Component {
             </Link>
           </div>
         </Navbar>
+        <h2>WELCOME! YOU CAN CHOOSE AN EVENT TO BUY OR SELL TICKETS</h2>
+        <br />
         <EventListContainer />
       </div>
     );

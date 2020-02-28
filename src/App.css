@@ -1,5 +1,5 @@
 html {
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 body {
@@ -12,10 +12,23 @@ a {
   margin: auto 1rem;
 }
 
+.h3,
+h3 {
+  font-size: 1.75rem;
+  text-align: center;
+}
 .navloginsignup {
   display: flex;
   flex-flow: row-reverse;
   margin-left: auto;
+}
+
+.formundertext {
+  text-align: center;
+}
+
+input[type="date"] {
+  margin-left: 1rem;
 }
 
 .loginsiunupForm {
@@ -23,10 +36,15 @@ a {
 }
 form {
   border-radius: 10px;
+  margin-bottom: 3rem;
+  width: 80%;
+  margin: auto;
+  margin-top: 3rem;
 }
 
 h2 {
   text-align: center;
+  margin-top: 1rem;
 }
 .eventCards {
   display: flex;

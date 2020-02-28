@@ -65,10 +65,12 @@ class SignupForm extends Component {
             Submit
           </Button>
         </Form>
-        <h6>Now go to Login page to sign in to website</h6>
-        <Link to="/login">LOGIN PAGE</Link>
-        <br />
-        <Link to="/">HOME PAGE</Link>
+        <div className="formundertext">
+          <h6>Now go to Login page to sign in to website</h6>
+          <Link to="/login">LOGIN PAGE</Link>
+
+          <Link to="/">HOME PAGE</Link>
+        </div>
       </div>
     );
   }

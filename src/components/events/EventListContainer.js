@@ -28,7 +28,9 @@ class EventListContainer extends Component {
       <div>
         <Events className="eventcontainerhome" />
         <br />
-        <Button onClick={this.changePage}>NEXT PAGE ></Button>
+        <Button variant="dark" onClick={this.changePage}>
+          NEXT PAGE >
+        </Button>
         <hr />
         <h2>CREATE AN EVENT</h2>
         {this.props.userstate.token && <EventsForm />}

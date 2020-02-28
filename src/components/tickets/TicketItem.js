@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { connect } from "react-redux";
 import { changeEditState } from "../../store/tickets/actions";
 import EditForm from "./EditForm";
@@ -29,7 +29,12 @@ class TicketItem extends Component {
 
   render() {
     console.log("props for individual tickets", this.props.data);
-    if (!this.props.data) return <div>Loading...</div>;
+    if (!this.props.data)
+      return (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      );
 
     return (
       <div className="tickettable">

@@ -93,7 +93,9 @@ class EventsForm extends Component {
             />
           </label>
           <br />
-          <Button type="submit">SUBMIT</Button>
+          <Button variant="dark" type="submit">
+            SUBMIT
+          </Button>
         </Form>
       </div>
     );
