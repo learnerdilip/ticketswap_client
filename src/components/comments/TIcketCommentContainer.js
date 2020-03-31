@@ -48,15 +48,15 @@ class TIcketCommentContainer extends Component {
           {this.props.userstate.token && <CommentForm />}
         </div>
       );
-      
+
     const allcomments = this.props.commentstate.commentList.map(comment => {
       return (
-        <Card>
-          <Card.Body>
-            <Card.Title>{comment.text}</Card.Title>
-            <Card.Text>USER ID: {comment.userId}</Card.Text>
-          </Card.Body>
-        </Card>
+        <div id="singlecomment">
+          <h4>{comment.text}</h4>
+          <p>
+            <sub>USER ID: {comment.userId}</sub>
+          </p>
+        </div>
       );
     });
 
@@ -83,6 +83,8 @@ class TIcketCommentContainer extends Component {
           <p>{description}</p>
           <h4>PRICE: ${price}</h4>
         </div>
+        <hr />
+        <h5 id="commenttext">COMMENTS</h5>
         {allcomments}
         {this.props.userstate.token && <CommentForm />}
       </div>

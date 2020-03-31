@@ -1,4 +1,6 @@
-const initialState = { currentevent: {}, eventlist: [] };
+import { initalEventData } from "../../InitialEventsData";
+
+const initialState = { currentevent: {}, eventlist: initalEventData };
 
 export default function eventsReducer(state = initialState, action) {
   switch (action.type) {

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { clickEventUpdate } from "../../store/events/actions";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { initalEventData } from "../../InitialEventsData";
 
 class Events extends Component {
   handleClick = currentevent => {
@@ -11,9 +12,16 @@ class Events extends Component {
   };
 
   render() {
+    console.log(this.props.eventstate.eventlist);
     const mappedevents = this.props.eventstate.eventlist.map((event, index) => {
       return (
         <Card className="eventCard" style={{ width: "18rem" }}>
+          <Card.Header
+            id="cardheader"
+            style={{ background: "#6c757d", fontWeight: 700 }}
+          >
+            {event.name}
+          </Card.Header>
           <Card.Img variant="top" src={event.imageUrl} />
           <Card.Body>
             <Card.Title>{event.title}</Card.Title>

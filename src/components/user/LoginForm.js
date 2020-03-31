@@ -28,13 +28,8 @@ class LoginForm extends Component {
 
   render() {
     // console.log("THE LOGIN FORM STATE:", this.state);
-    if (this.props.userstate.token)
-      return (
-        <div className="formundertext">
-          <h3>Logged In! Go to</h3>
-          <Link to="/">HOME PAGE</Link>
-        </div>
-      );
+    if (this.props.userstate.token) this.props.history.push("/");
+
     return (
       <div className="loginsiunupForm">
         <h3>Please Login here</h3>

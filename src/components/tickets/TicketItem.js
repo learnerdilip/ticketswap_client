@@ -54,15 +54,17 @@ class TicketItem extends Component {
             {this.props.data.map(ticket => {
               return (
                 <tr>
-                  <td>{ticket.title}</td>
-                  <td>{ticket.price}</td>
-                  <td>{ticket.description}</td>
                   <Link
+                    id="ticketinlist"
                     onClick={() => this.props.handleClick(ticket)}
                     to={`/event/ticket/${ticket.id}`}
                   >
-                    {ticket.id}
+                    <td>{ticket.title}</td>
                   </Link>
+                  <td>{ticket.price}</td>
+                  <td>{ticket.description}</td>
+                  <td>{ticket.id}</td>
+
                   <td
                     className="riskyparam"
                     style={
@@ -89,6 +91,7 @@ class TicketItem extends Component {
                     </Button>
                   )}
                 </tr>
+                //
               );
             })}
           </tbody>

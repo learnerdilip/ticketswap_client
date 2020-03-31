@@ -33,6 +33,9 @@ class EventListContainer extends Component {
         </Button>
         <hr />
         <h2>CREATE AN EVENT</h2>
+        <p style={{ textAlign: "center" }}>
+          <sub>Only available when signed in!</sub>{" "}
+        </p>
         {this.props.userstate.token && <EventsForm />}
       </div>
     );
