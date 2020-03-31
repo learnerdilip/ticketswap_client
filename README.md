@@ -21,4 +21,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### DEMO
 []()
 
-
+### Technologies Used
+- React
+- bootstrap
+- redux
+- thunk
+- axios
