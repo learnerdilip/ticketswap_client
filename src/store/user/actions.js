@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = `http://localhost:4000`;
+const baseUrl = `https://devdilip-ticketswap-server.herokuapp.com/`;
 
 function userLoggedIn(data) {
   return {
