@@ -20,10 +20,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### DEMO
 #### guest user
-![guest_user]('./guestuser_ticketswap.gif')
+![guest_user](/guestuser_ticketswap.gif)
 
 #### SignedIn user
-![dignedIn_user]('/signedin_user_ticketswap.gif')
+![dignedIn_user](/signedin_user_ticketswap.gif)
 
 
 ### Technologies Used
