@@ -60,8 +60,12 @@ class LoginForm extends Component {
         </Form>
         <div className="formundertext">
           <h6>Not a registered user? Go to</h6>
-          <Link to="/signup">SIGN UP PAGE</Link>
-          <Link to="/">HOME PAGE</Link>
+          <Link className="aaa" to="/signup">
+            SIGN UP PAGE
+          </Link>
+          <Link className="aaa" to="/">
+            HOME PAGE
+          </Link>
         </div>
       </div>
     );

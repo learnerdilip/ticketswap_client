@@ -59,17 +59,18 @@ h2 {
   font-weight: 700;
 }
 
-.eventCards {
+.eventCardscontainer {
   display: flex;
   margin: 1rem auto;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  /* box-shadow: 1rem 1rem 5rem 0px grey; */
-  border: solid gray 10px;
+  border: solid #ccc 6px;
   width: 100%;
 }
 .eventCard {
   margin: 15px;
+  height: 60vh;
+  overflow: hidden;
   width: 30% !important;
 }
 
@@ -110,13 +111,6 @@ form {
   text-align: center;
 }
 
-.card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem;
-  border: double 3px gray;
-}
-
 #websitewelcome {
   animation-name: websitetitle;
   animation-duration: 1s;
@@ -126,12 +120,12 @@ form {
 
 @keyframes websitetitle {
   from {
-    color: red;
+    color: black;
     font-weight: 100;
   }
   to {
     color: black;
-    font-weight: 600;
+    /* font-weight: 600; */
     text-shadow: gray 2px 2px;
   }
 }
@@ -149,16 +143,16 @@ form {
 
 @keyframes title {
   0% {
-    transform: rotate(-5deg);
+    transform: rotate(-1deg);
   }
   50% {
-    transform: rotate(5deg);
+    transform: rotate(1deg);
   }
   75% {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(-5deg);
+    transform: rotate(-1deg);
   }
 }
 
@@ -182,4 +176,33 @@ form {
 
 #cardheader {
   color: #f8f9fa;
+  height: 10%;
+}
+
+#cardbody {
+  flex: 1 1 auto;
+  height: 40%;
+  padding: 1rem;
+  /* border: double 3px gray; */
+  text-overflow: ellipsis;
+  font-style: italic;
+}
+
+#cardimage {
+  height: 30%;
+}
+
+#buttoncard {
+  height: 10%;
+  background-color: rgb(108, 117, 125);
+  text-align: center;
+  margin: 0px;
+}
+
+button.btn.btn-dark {
+  margin-top: 10px;
+}
+
+.aaa {
+  color: slateblue !important;
 }

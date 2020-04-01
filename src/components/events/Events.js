@@ -22,21 +22,20 @@ class Events extends Component {
           >
             {event.name}
           </Card.Header>
-          <Card.Img variant="top" src={event.imageUrl} />
-          <Card.Body>
-            <Card.Title>{event.title}</Card.Title>
+          <Card.Img id="cardimage" variant="top" src={event.imageUrl} />
+          <Card.Body id="cardbody">
             <Card.Text>{event.description}</Card.Text>
-            <Link to={`/event/${event.id}`}>
-              <Button onClick={() => this.handleClick(event)} variant="dark">
-                TICKETS!
-              </Button>
-            </Link>
           </Card.Body>
+          <Link id="buttoncard" to={`/event/${event.id}`}>
+            <Button onClick={() => this.handleClick(event)} variant="dark">
+              TICKETS!
+            </Button>
+          </Link>
         </Card>
       );
     });
     return (
-      <div class="card" className="eventCards">
+      <div class="card" className="eventCardscontainer">
         {mappedevents}
       </div>
     );

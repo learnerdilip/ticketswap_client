@@ -34,7 +34,9 @@ class SignupForm extends Component {
       return (
         <div>
           <h3>Thank you for signing Up! Go to Login page now</h3>
-          <Link to="/login">LOGIN PAGE</Link>
+          <Link className="aaa" to="/login">
+            LOGIN PAGE
+          </Link>
         </div>
       );
     return (

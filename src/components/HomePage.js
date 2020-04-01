@@ -20,13 +20,15 @@ class HomePage extends Component {
             />
             Event Ticket Swap
           </Navbar.Brand>
+
           <div className="navloginsignup">
-            <Link to="/login">LOGIN </Link>
-            <br />
-            <Link to="/signup">SIGNUP </Link>
-            <Link to="/" onClick={() => this.props.clearuserData()}>
-              LOGOUT
-            </Link>
+            {!this.props.userloggedin && <Link to="/login">LOGIN </Link>}
+            {!this.props.userloggedin && <Link to="/signup">SIGNUP </Link>}
+            {this.props.userloggedin && (
+              <Link to="/" onClick={() => this.props.clearuserData()}>
+                LOGOUT
+              </Link>
+            )}
           </div>
         </Navbar>
         <h2 id="websitewelcome">
@@ -40,7 +42,9 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  return {};
+  return {
+    userloggedin: reduxState.user.token
+  };
 };
 
 export default connect(mapStateToProps, { clearuserData })(HomePage);
