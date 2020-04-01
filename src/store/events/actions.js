@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = `https://devdilip-ticketswap-server.herokuapp.com/`;
+const baseUrl = `https://devdilip-ticketswap-server.herokuapp.com`;
 
 const eventCreated = data => {
   return {
